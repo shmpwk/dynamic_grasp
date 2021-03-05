@@ -71,10 +71,12 @@
         machine="$(arg machine)">
         <remap from="~input" to="/extract_indices/output" />
     <rosparam>
-      min_size: 3000
-      max_curvature: 0.008
+      min_size: 8000
+      max_curvature: 0.5
       estimate_normal: true
-      ransac_refine_outlier_distance_threshold: 0.1 
+      ransac_refine_outlier_distance_threshold: 0.5
+      connect_distance_threshold: 1
+      max_refined_area_threshold: 100000
     </rosparam>
   </node>
   <node name="polygon_magnifier" pkg="nodelet" type="nodelet"

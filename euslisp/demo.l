@@ -149,7 +149,7 @@
 	  (send *baxter* *rarm* :inverse-kinematics
 		(make-coords :pos (v+ (send *target-obj* :worldpos)
 				       ;;(float-vector 0 (- (/ (car *d_xyz*) -2) 10) 30)
-                                      (float-vector 0 -120 230))
+                                      (float-vector 0 -120 200))
 			     ;;:rpy #f(1.54 1.37 -1.54))
 			     :rpy #f(1.54 0 0))
 		:rotation-axis nil :translation-axis t))
@@ -157,7 +157,7 @@
       (send *pregrasp-point* :newcoords
 		(make-coords :pos (v+ (send *target-obj* :worldpos)
 				       ;;(float-vector 0 (- (/ (car *d_xyz*) -2) 10) 30)
-                                      (float-vector 0 -120 230))
+                                      (float-vector 0 -120 200))
 			     ;;:rpy #f(1.54 1.37 -1.54))
 			     :rpy #f(1.54 0 0)))
       (send *co-ik-target* :newcoords (send *target-obj* :copy-worldcoords))
@@ -174,8 +174,8 @@
     (setq *grasp-state* "grasp-approaching")
     (publish-grasp-state)
     (publish-info "reaching...")
-    (send *baxter* *rarm* :move-end-pos #f(0 140 -50) :world)
-    (send *ri* :angle-vector (send *baxter* :angle-vector) 5000)
+    (send *baxter* *rarm* :move-end-pos #f(0 120 -50) :world)
+    (send *ri* :angle-vector (send *baxter* :angle-vector) 2000)
     (send *ri* :wait-interpolation) 
     (grip)
     (pick)
