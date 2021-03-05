@@ -1,1 +1,4 @@
-# dynamic_grasp
+# soft_grasp
+
+## Description
+Grasp piled plates
