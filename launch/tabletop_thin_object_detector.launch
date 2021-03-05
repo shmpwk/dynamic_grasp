@@ -72,11 +72,11 @@
         <remap from="~input" to="/extract_indices/output" />
     <rosparam>
       min_size: 8000
-      max_curvature: 0.5
+      max_curvature: 5
       estimate_normal: true
-      ransac_refine_outlier_distance_threshold: 0.5
-      connect_distance_threshold: 1
-      max_refined_area_threshold: 100000
+      ransac_refine_outlier_distance_threshold: 0.01
+      connect_distance_threshold: 10
+      max_refined_area_threshold: 1000000
     </rosparam>
   </node>
   <node name="polygon_magnifier" pkg="nodelet" type="nodelet"
@@ -107,6 +107,7 @@
     <rosparam>
       tolerance: 0.02
       min_size: 100
+      max_size: 1000
     </rosparam>
   </node>
   <node name="throttle_segmentation" pkg="nodelet" type="nodelet"
