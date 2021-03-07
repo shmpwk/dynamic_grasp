@@ -71,7 +71,7 @@
         machine="$(arg machine)">
         <remap from="~input" to="/extract_indices/output" />
     <rosparam>
-      min_size: 6000
+      min_size: 3000
       max_curvature: 50
       estimate_normal: true
       ransac_refine_outlier_distance_threshold: 0.01
