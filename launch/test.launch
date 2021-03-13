@@ -1,0 +1,19 @@
+<launch>
+
+  <node name="sample_manager"
+        pkg="nodelet" type="nodelet"
+        args="manager"/>
+  
+  <node name="organized_edge_detector"
+        pkg="nodelet" type="nodelet"
+        args="load jsk_pcl/OrganizedEdgeDetector sample_manager">
+        <remap from="~input" to="/realsense_torso/depth_registered/points"/>
+        <!--remap from="~input" to="/selected_pointcloud"/-->
+    <rosparam>
+      publish_normal: true
+      use_nan_boundary: true
+      use_rgb: true
+    </rosparam>
+  </node>
+</launch>
+
